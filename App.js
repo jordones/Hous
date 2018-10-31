@@ -5,12 +5,52 @@ const SCREEN_HEIGHT = Dimensions.get('window').height;
 const SCREEN_WIDTH = Dimensions.get('window').width;
 
 
+// Title
+// Province
+// Price / mnth
+// Location
+
 const Listings = [
-  {id: "1", uri: require('./assets/house1.jpg')},
-  {id: "2", uri: require('./assets/house2.jpg')},
-  {id: "3", uri: require('./assets/house3.jpg')},
-  {id: "4", uri: require('./assets/house4.jpg')},
-  {id: "5", uri: require('./assets/house5.jpg')}
+  {
+    id: "1", 
+    uri: require('./assets/house1.jpg'),
+    title: "Urinal",
+    provState: "Ontario",
+    city: "Guelph",
+    price: 500
+  },
+  {
+    id: "2",
+    uri: require('./assets/house2.jpg'),
+    title: "1 bed, 1 bath",
+    provState: "USA",
+    city: "Bikini Bottom",
+    price: 850
+  },
+  {
+    id: "3",
+    uri: require('./assets/house3.jpg'),
+    title: "Michael Scott Condo",
+    provState: "PA",
+    city: "Scranton",
+    price: 900
+  },
+  {
+    id: "4",
+    uri: require('./assets/house4.jpg'),
+    title: "1 Bedroom",
+    provState: "New York",
+    city: "Manhattan",
+    price: 2500
+  },
+  {
+    id: "5",
+    uri: require('./assets/house5.jpg'),
+    title: "South Res + Meal Plan",
+    provState: "Ontario",
+    city: "Guelph",
+    price: 750
+  },
 ]
 export default class App extends React.Component {
 
@@ -120,6 +160,7 @@ export default class App extends React.Component {
                 style={{ flex: 1, height: null, width: null, resizeMode: 'cover', borderRadius: 20 }}
                 source={ item.uri }
               />
+              <Text style={{position: 'absolute', padding: 10, bottom: 0, margin: 10, fontSize: 24, backgroundColor: 'rgba(0, 0, 0, 0.45)', color: 'rgb(255,255,255)', borderBottomLeftRadius: 20 }}>{item.title}{"\n"}{item.city},{item.provState}{"\n"}{"$"}{item.price}{"/Month"}</Text>
           </Animated.View>
         );
       }
@@ -128,10 +169,13 @@ export default class App extends React.Component {
           <Animated.View 
             key={ item.id }
             style={[ {opacity: this.nextCardOpacity, transform:[{scale:this.nextCardScale}]}, {height:SCREEN_HEIGHT-120, width:SCREEN_WIDTH, padding: 10, position: 'absolute' }]}>
+            <View style={{ position: 'relative'}}>
               <Image
-                style={{ flex: 1, height: null, width: null, resizeMode: 'cover', borderRadius: 20 }}
+                style={{ flex: 1, position: 'relative', height: null, width: null, resizeMode: 'cover', borderRadius: 20 }}
                 source={ item.uri }
               />
+              <Text style={{position: 'absolute', padding: 10, bottom: 0, margin: 10, fontSize: 24, backgroundColor: 'rgba(0, 0, 0, 0.45)', color: 'rgb(255,255,255)', borderBottomLeftRadius: 20 }}>{item.title}{"\n"}{item.city},{item.provState}{"\n"}{"$"}{item.price}{"/Month"}</Text>
+            </View>
           </Animated.View>
         );
       }
