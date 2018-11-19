@@ -123,11 +123,6 @@ const RootStack = createStackNavigator(
   }
 );
 
-// const AppNavigator = createStackNavigator({
-//   Home: HomeScreen
-// });
-// //
-// export default createAppContainer(AppNavigator);
 const AppContainer = createAppContainer(RootStack);
 
 export default class App extends React.Component {

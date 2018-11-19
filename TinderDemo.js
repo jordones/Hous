@@ -1,5 +1,6 @@
 import React from 'react';
-import { StyleSheet, Text, View, Dimensions, Animated, Image, PanResponder } from 'react-native';
+import {TouchableHighlight ,StyleSheet, Text, View, Dimensions, Animated, Image, PanResponder } from 'react-native';
+import Styles from './tinderStyles.js';
 
 const SCREEN_HEIGHT = Dimensions.get('window').height;
 const SCREEN_WIDTH = Dimensions.get('window').width;
@@ -148,9 +149,28 @@ export class TinderDemo extends React.Component {
         <View style={{flex:1}}>
           { this.renderListings() }
         </View>
-        <View style={{height:60}}>
-
-        </View>
+        <View style={Styles.bottomBar}>
+          <View style={{flex:1}}>
+            <TouchableHighlight style={Styles.button}>
+              <Image style={Styles.smallButtonImage} source={require('./assets/icons/bottom-bar/reverseIcon.png')} />
+            </TouchableHighlight>
+          </View>
+          <View style={{flex:1}}>
+            <TouchableHighlight style={Styles.button}>
+              <Image style={Styles.mainButtonImage} source={require('./assets/icons/bottom-bar/homeHate.png')} />
+            </TouchableHighlight>
+          </View>
+          <View style={{flex:1}}>
+            <TouchableHighlight style={Styles.button}>
+              <Image style={Styles.mainButtonImage} source={require('./assets/icons/bottom-bar/homeHeart.png')} />
+            </TouchableHighlight>
+          </View>
+          <View style={{flex:1}}>
+            <TouchableHighlight style={Styles.button}>
+                <Image style={Styles.smallButtonImage} source={require('./assets/icons/chat.png')} />
+            </TouchableHighlight>
+          </View>
+      </View>
       </View>
     );
   }
