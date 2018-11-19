@@ -1,31 +1,47 @@
 import React from "react";
-import { View, Text, Button } from "react-native";
+import { TouchableHighlight ,Image , View, Text, Button } from "react-native";
 import { createStackNavigator, createAppContainer } from "react-navigation";
 import { LinearGradient } from 'expo';
 import {TinderDemo} from './TinderDemo.js';
 
+
 class NavBarScreen extends React.Component {
     static navigationOptions = ({navigation, screenProps}) => ({
         headerTitle: (
-          <Button
+          <TouchableHighlight 
             onPress={() => navigation.navigate('Home')}
-            title="Home"
-            color="#000"
-          />
+            underlayColor = "rgba(255,255,255,1)"
+          >
+          <Image
+            style={{margin: 50 }}
+            source={require('./assets/icons/logos/LogoIcon.png')}
+            onClick={() => navigation.navigate('Home')}
+           />
+           </TouchableHighlight>
         ),
         headerRight: (
-          <Button
+          <TouchableHighlight 
             onPress={() => navigation.navigate('Chat')}
-            title="Chat"
-            color="#000"
-          />
+            underlayColor = "rgba(255,255,255,1)"
+          >
+            <Image
+              style={{marginRight: 10, opacity: 0.4 }}
+              source={require('./assets/icons/chat.png')}
+              onClick={() => navigation.navigate('Chat')}
+            />
+           </TouchableHighlight>
         ),
         headerLeft: (
-          <Button
+          <TouchableHighlight 
             onPress={() => navigation.navigate('Profile')}
-            title="Profile"
-            color="#000"
+            underlayColor = "rgba(255,255,255,1)"
+          >
+          <Image
+            style={{marginLeft: 10, opacity: 0.4 }}
+            source={require('./assets/icons/user.png')}
+            onClick={() => navigation.navigate('Profiel')}
           />
+          </TouchableHighlight>
         ),
     });
 }
@@ -54,7 +70,7 @@ class ChatScreen extends NavBarScreen {
 
   render() {
     return (
-      <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+      <View style={{ padding: 5 ,flex: 1, alignItems: "center", justifyContent: "center" }}>
         <Text>Chat Screen</Text>
       </View>
     );
@@ -123,11 +139,6 @@ const RootStack = createStackNavigator(
   }
 );
 
-// const AppNavigator = createStackNavigator({
-//   Home: HomeScreen
-// });
-// //
-// export default createAppContainer(AppNavigator);
 const AppContainer = createAppContainer(RootStack);
 
 export default class App extends React.Component {
