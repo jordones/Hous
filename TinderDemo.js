@@ -1,5 +1,6 @@
 import React from 'react';
-import { StyleSheet, Text, View, Dimensions, Animated, Image, PanResponder } from 'react-native';
+import {StyleSheet, Text, View, Dimensions, Animated, Image, PanResponder } from 'react-native';
+import {BottomBar} from './Components/BottomBar/BottomBar.js';
 
 const SCREEN_HEIGHT = Dimensions.get('window').height;
 const SCREEN_WIDTH = Dimensions.get('window').width;
@@ -148,9 +149,7 @@ export class TinderDemo extends React.Component {
         <View style={{flex:1}}>
           { this.renderListings() }
         </View>
-        <View style={{height:60}}>
-
-        </View>
+        <BottomBar/>
       </View>
     );
   }
