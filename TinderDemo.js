@@ -1,6 +1,6 @@
 import React from 'react';
 import {TouchableHighlight, Text, View, Dimensions, Animated, Image, PanResponder } from 'react-native';
-import {BottomBar} from './Components/BottomBar/BottomBar.js';
+import {BottomBar} from './components/BottomBar/BottomBar.js';
 import { LinearGradient } from 'expo';
 import Style from './tinderStyles.js'
 
@@ -216,7 +216,9 @@ export class TinderDemo extends React.Component {
                 onPress={() => this.moreInfoClick.bind(this)}
                 underlayColor = "transparent">
                 <Image
-                  source={require('./assets/icons/moreInfo.png')} />
+                  style={Style.moreInfoImage}
+                  source={require('./assets/icons/moreInfo.png')} 
+                  resizeMode={'contain'}/>
               </TouchableHighlight> 
               <View style={Style.titleWrapper}>
                 <Text style={Style.titleText}>{ item.title }</Text>
@@ -243,7 +245,8 @@ export class TinderDemo extends React.Component {
                 onPress={() => this.moreInfoClick.bind(this) }
                 underlayColor = "transparent">
                 <Image
-                  source={require('./assets/icons/moreInfo.png')} />
+                  source={require('./assets/icons/moreInfo.png')} 
+                  resizeMode={'contain'}/>
               </TouchableHighlight> 
               <View style={Style.titleWrapper}>
                 <Text style={Style.titleText}>{ item.title }</Text>
