@@ -2,8 +2,8 @@
   "devToolsPort": 19002,
   "expoServerPort": 19000,
   "packagerPort": 19001,
-  "packagerPid": 2076,
-  "expoServerNgrokUrl": null,
-  "packagerNgrokUrl": null,
-  "ngrokPid": null
+  "packagerPid": 16609,
+  "expoServerNgrokUrl": "https://bz-dk8.anonymous.bbhmr.exp.direct",
+  "packagerNgrokUrl": "https://packager.bz-dk8.anonymous.bbhmr.exp.direct",
+  "ngrokPid": 16620
 }
