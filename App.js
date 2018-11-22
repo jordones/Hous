@@ -3,12 +3,14 @@ import { TouchableHighlight ,Image , View, Text, Button } from "react-native";
 import { createStackNavigator, createAppContainer } from "react-navigation";
 import { LinearGradient } from 'expo';
 import {TinderDemo} from './TinderDemo.js';
+import {ConversationBar} from './Components/Messaging/ConversationBar.js';
+import {ConversationList} from './Components/Messaging/ConversationList.js';
 
 
 class NavBarScreen extends React.Component {
     static navigationOptions = ({navigation, screenProps}) => ({
         headerTitle: (
-          <TouchableHighlight 
+          <TouchableHighlight
             onPress={() => navigation.navigate('Home')}
             underlayColor = "rgba(255,255,255,1)"
           >
@@ -20,7 +22,7 @@ class NavBarScreen extends React.Component {
            </TouchableHighlight>
         ),
         headerRight: (
-          <TouchableHighlight 
+          <TouchableHighlight
             onPress={() => navigation.navigate('Chat')}
             underlayColor = "rgba(255,255,255,1)"
           >
@@ -32,7 +34,7 @@ class NavBarScreen extends React.Component {
            </TouchableHighlight>
         ),
         headerLeft: (
-          <TouchableHighlight 
+          <TouchableHighlight
             onPress={() => navigation.navigate('Profile')}
             underlayColor = "rgba(255,255,255,1)"
           >
@@ -66,12 +68,34 @@ class ProfileScreen extends NavBarScreen {
   }
 }
 
+/*
+ * Conversation Info provided below is placeholder data for the purpose of supplying
+ * date to the chatscreen components
+ * - Jordon
+*/
+const ConversationBarData = [
+  {id: "1", uri: require('./assets/house1.jpg'), title: "Bathroom"},
+  {id: "2", uri: require('./assets/house2.jpg'), title: "Pineapple Under the Sea"},
+  {id: "3", uri: require('./assets/house3.jpg'), title: "The Office"},
+  {id: "4", uri: require('./assets/house4.jpg'), title: "Bedroom"},
+  {id: "5", uri: require('./assets/house5.jpg'), title: "Dorm"}
+]
+
+const ConversationListData = [
+  {id: "1", uri: require('./assets/house1.jpg'), title: "Placeholder", text: "blah blah blah"},
+  {id: "2", uri: require('./assets/house2.jpg'), title: "Placeholder", text: "blah blah blah"},
+  {id: "3", uri: require('./assets/house3.jpg'), title: "Placeholder", text: "blah blah blah"},
+  {id: "4", uri: require('./assets/house4.jpg'), title: "Placeholder", text: "blah blah blah"},
+  {id: "5", uri: require('./assets/house5.jpg'), title: "Placeholder", text: "blah blah blah"}
+]
+
 class ChatScreen extends NavBarScreen {
 
   render() {
     return (
-      <View style={{ padding: 5 ,flex: 1, alignItems: "center", justifyContent: "center" }}>
-        <Text>Chat Screen</Text>
+      <View style={{ padding: 5 ,flex: 1, alignItems: "stretch", justifyContent: "center" }}>
+        <ConversationBar conversations={ConversationBarData}/>
+        <ConversationList conversations={ConversationListData}/>
       </View>
     );
   }
@@ -81,7 +105,7 @@ class ChatScreen extends NavBarScreen {
 class ListingsScreen extends React.Component {
     static navigationOptions = ({navigation, screenProps}) => ({
         headerTitle: (
-          <TouchableHighlight 
+          <TouchableHighlight
             onPress={() => navigation.navigate('Login')}
             underlayColor = "rgba(255,255,255,1)"
           >
