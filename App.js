@@ -85,11 +85,11 @@ class ListingsScreen extends React.Component {
             onPress={() => navigation.navigate('Login')}
             underlayColor = "rgba(255,255,255,1)"
           >
-          <Image
-            style={{margin: 50 }}
-            source={require('./assets/icons/logos/logoLandscape.png')}
-            onClick={() => navigation.navigate('Home')}
-           />
+            <Image
+              style={{margin: 50 }}
+              source={require('./assets/icons/logos/logoLandscape.png')}
+              onClick={() => navigation.navigate('Home')}
+            />
            </TouchableHighlight>
         ),
         headerLeft: null
