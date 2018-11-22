@@ -1,5 +1,8 @@
 import React from 'react';
-import { StyleSheet, Text, View, Dimensions, Animated, Image, PanResponder } from 'react-native';
+import {TouchableHighlight, Text, View, Dimensions, Animated, Image, PanResponder } from 'react-native';
+import {BottomBar} from './Components/BottomBar/BottomBar.js';
+import { LinearGradient } from 'expo';
+import Style from './tinderStyles.js'
 
 const SCREEN_HEIGHT = Dimensions.get('window').height;
 const SCREEN_WIDTH = Dimensions.get('window').width;
@@ -32,26 +35,38 @@ const Listings = [
   },
   { 
     id: "2",
+    title: "Pineapple under the Sea",
+    location: "Bikini Bottom, USA",
+    price: "$800/month",
     images: {
       one: require('./assets/house2.jpg')
     },
   },
   { 
     id: "3", 
+    title: "Home with $200 plasma screen tv",
+    location: "Scranton, PA",
+    price: "$500/month",
     images: {
       one: require('./assets/house3.jpg')
     },
   },
   { 
     id: "4", 
+    title: "Single room",
+    location: "Etobicoke, Ontario",
+    price: "$900/month",
     images: {
       one: require('./assets/house4.jpg')
     },
   },
   { 
     id: "5", 
+    title: "South Res",
+    location: "Guelph, Ontario",
+    price: "$800/month",
     images: {
-      outputRange: require('./assets/house5.jpg')
+      one: require('./assets/house5.jpg')
     },
   }
 ]
@@ -141,6 +156,35 @@ export class TinderDemo extends React.Component {
     });
   }
 
+  animateLike() {
+    Animated.spring(this.position, {
+      toValue:{ x: SCREEN_WIDTH + 50, y: 0 }
+    }).start( () => {
+        this.setState({currentIndex: this.state.currentIndex + 1
+      }, () => {
+        this.position.setValue({x: 0, y: 0});
+      });
+    });
+  }
+  animateDislike(){
+    Animated.spring(this.position, 
+      { toValue: { x: -SCREEN_WIDTH - 50, y: 0 }
+    }).start(() => {
+      this.setState({ currentIndex: this.state.currentIndex + 1
+      }, () => {
+        this.position.setValue({ x: 0, y: 0 });
+      });
+    });
+  }
+
+ animateBack(){
+    this.setState({ currentIndex: this.state.currentIndex - 1 });
+ }
+
+  moreInfoClick(){
+    //TODO: add moreinfo for onclick
+  }
+
   renderListings = () => {
     return Listings.map((item, i) => {
 
@@ -154,15 +198,31 @@ export class TinderDemo extends React.Component {
             key={ item.id }
             style={[this.rotateAndTranslate, { height:SCREEN_HEIGHT-120, width:SCREEN_WIDTH, padding: 10, position: 'absolute' }]}>
               <Animated.View style={{ opacity: this.likeOpacity, transform: [{ rotate: '-30deg'}], position: 'absolute', top: 50, left: 40, zIndex: 1000 }}>
-                <Text style={styles.like}>LIKE</Text>
+                <Text style={Style.like}>LIKE</Text>
               </Animated.View>
               <Animated.View style={{ opacity: this.dislikeOpacity, transform: [{ rotate: '30deg'}], position: 'absolute', top: 50, right: 40, zIndex: 1000 }}>
-                <Text style={styles.dislike}>NOPE</Text>
+                <Text style={Style.dislike}>NOPE</Text>
               </Animated.View>
               <Image
-                style={ styles.homeImage }
+                style={ Style.homeImage }
                 source={ item.images.one }
               />
+              <LinearGradient
+                style={Style.gradientStyle}
+                colors = {['rgba(0,0,0,0)', 'rgba(0,0,0,0)','rgba(0,0,0,0)','rgba(0,0,0,0.5)','rgba(0,0,0,0.8)' ]} >
+              </LinearGradient>
+              <TouchableHighlight 
+                style={Style.moreInfo}
+                onPress={() => this.moreInfoClick.bind(this)}
+                underlayColor = "transparent">
+                <Image
+                  source={require('./assets/icons/moreInfo.png')} />
+              </TouchableHighlight> 
+              <View style={Style.titleWrapper}>
+                <Text style={Style.titleText}>{ item.title }</Text>
+                <Text style={Style.titleText}>{ item.location } </Text>
+                <Text style={Style.titleText}>{ item.price }</Text>
+              </View>
           </Animated.View>
         );
       }
@@ -172,9 +232,24 @@ export class TinderDemo extends React.Component {
             key={ item.id }
             style={[ {opacity: this.nextCardOpacity, transform:[{scale:this.nextCardScale}]}, {height:SCREEN_HEIGHT-120, width:SCREEN_WIDTH, padding: 10, position: 'absolute' }]}>
               <Image
-                style={styles.homeImage}
-                source={ item.images.one }
-              />
+                style={Style.homeImage}
+                source={ item.images.one }/>
+              <LinearGradient
+                style={Style.gradientStyle}
+                colors = {['rgba(0,0,0,0)', 'rgba(0,0,0,0)','rgba(0,0,0,0)','rgba(0,0,0,0.5)','rgba(0,0,0,0.8)' ]} >
+              </LinearGradient>
+              <TouchableHighlight 
+                style={Style.moreInfo}
+                onPress={() => this.moreInfoClick.bind(this) }
+                underlayColor = "transparent">
+                <Image
+                  source={require('./assets/icons/moreInfo.png')} />
+              </TouchableHighlight> 
+              <View style={Style.titleWrapper}>
+                <Text style={Style.titleText}>{ item.title }</Text>
+                <Text style={Style.titleText}>{ item.location } </Text>
+                <Text style={Style.titleText}>{ item.price }</Text>
+              </View>
           </Animated.View>
         );
       }
@@ -191,42 +266,12 @@ export class TinderDemo extends React.Component {
         <View style={{flex:1}}>
           { this.renderListings() }
         </View>
-        <View style={{height:60}}>
-
-        </View>
+        <BottomBar
+         updateLike = { this.animateLike.bind(this) }
+         updateDislike = { this.animateDislike.bind(this) }
+         updateBack = { this.animateBack.bind(this) }
+        />
       </View>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  homeImage: {
-    flex: 1, 
-    height: null, 
-    width: null, 
-    resizeMode: 'cover', 
-    borderRadius: 10,
-  },
-  dislike: {
-    borderWidth: 1, 
-    borderColor: 'red', 
-    color: 'red', 
-    fontSize: 32, 
-    fontWeight: '800', 
-    padding: 10,
-  },
-  like: {
-    borderWidth: 1, 
-    borderColor: 'green', 
-    color: 'green', 
-    fontSize: 32, 
-    fontWeight: '800', 
-    padding: 10
-  },
-});
