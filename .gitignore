@@ -69,5 +69,5 @@ package-lock.json
 # ReactCommon subdir shouldn't have Xcode project
 /ReactCommon/**/*.xcodeproj
 RNTester/build
-.expo/packager-info.json
+.expo/
 .expo/packager-info.json
