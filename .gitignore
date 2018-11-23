@@ -70,3 +70,4 @@ package-lock.json
 /ReactCommon/**/*.xcodeproj
 RNTester/build
 .expo/packager-info.json
+.expo/packager-info.json

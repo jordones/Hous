@@ -30,6 +30,11 @@ export default StyleSheet.create({
     position: 'relative'
 },
 title: {
-    alignSelf: 'flex-start'
+    alignSelf: 'flex-start',
+    paddingTop: 30,
+    paddingLeft: 5,
+    paddingBottom: 5,
+    fontSize: 18,
+    color: 'rgba(0, 0, 0, 0.8)'
 }
 });
