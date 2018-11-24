@@ -9,7 +9,7 @@ export class BottomBar extends React.Component {
     }
 
     render() {
-        return ( 
+        return (
             <View style={Styles.bottomBar}>
                 <View style={{flex:1}}>
                 <TouchableHighlight style={Styles.button} onPress={ this.props.updateBack }>
