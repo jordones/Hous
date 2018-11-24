@@ -17,13 +17,21 @@ export class ConversationListItem extends React.Component {
         return (
             <View style={Styles.cardRoot}>
               <View style={Styles.imageContainer}>
-              <ChatBubble source="../../assets/house1.jpg" title=""/>
+              <ChatBubble source={this.state.source} title=""/>
               </View>
               <View style={Styles.rightContainer}>
-              <Text style={Styles.text}>
+              <Text
+                style={Styles.text}
+                numberOfLines={1}
+                ellipsizeMode={'tail'}
+              >
                     {this.state.title}
               </Text>
-              <Text style={Styles.message}>
+              <Text
+                style={Styles.message}
+                numberOfLines={1}
+                ellipsizeMode={'tail'}
+              >
                 { this.state.message}
               </Text>
               </View>

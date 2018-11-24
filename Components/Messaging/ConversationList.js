@@ -11,6 +11,15 @@ export class ConversationList extends React.Component {
         }
     }
 
+    renderConversations = () => {
+        return this.state.conversations.map((conversation) => {
+            return (
+                <ConversationListItem key={conversation.id} source={conversation.uri} title={conversation.title} message={conversation.message}/>
+
+            );
+        });
+    }
+
     render() {
         return (
             <View style={Styles.listContainer}>
@@ -19,14 +28,7 @@ export class ConversationList extends React.Component {
                      contentContainerStyle={Styles.scroll}
                      showsVerticalScrollIndicator= {false}
                  >
-                  <ConversationListItem source="../../assets/house1.jpg" title="House" message="Hello I am interested in renting.."/>
-                  <ConversationListItem source="../../assets/house2.jpg" title="House" message="Hello I am interested in renting.."/>
-                  <ConversationListItem source="../../assets/house3.jpg" title="House" message="Hello I am interested in renting.."/>
-                  <ConversationListItem source="../../assets/house4.jpg" title="House" message="Hello I am interested in renting.."/>
-                  <ConversationListItem source="../../assets/house5.jpg" title="House" message="Hello I am interested in renting.."/>
-                  <ConversationListItem source="../../assets/house3.jpg" title="House" message="Hello I am interested in renting.."/>
-                  <ConversationListItem source="../../assets/house4.jpg" title="House" message="Hello I am interested in renting.."/>
-                  <ConversationListItem source="../../assets/house1.jpg" title="House" message="Hello I am interested in renting.."/>
+                {this.renderConversations()}
                 </ScrollView>
             </View>
 

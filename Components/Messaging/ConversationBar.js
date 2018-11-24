@@ -15,7 +15,7 @@ export class ConversationBar extends React.Component {
     renderConversations = () => {
         return this.state.conversations.map((conversation) => {
             return (
-                <ChatBubble source={conversation.uri} title={conversation.title}/>
+                <ChatBubble key={conversation.id} source={conversation.uri} title={conversation.title}/>
             );
         });
     }
