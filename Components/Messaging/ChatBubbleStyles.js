@@ -25,8 +25,10 @@ export default StyleSheet.create({
       },
     title: {
           alignSelf: 'center',
+          textAlign: 'center',
           marginBottom: 5,
           color: 'rgba(0, 0, 0, 0.6)',
-          fontSize: 12
+          fontSize: 12,
+          width: 60
       }
 });

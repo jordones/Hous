@@ -15,9 +15,12 @@ export class ChatBubble extends React.Component {
         return (
             <View style={Styles.container}>
                 <TouchableHighlight style={Styles.button}>
-                    <Image style={Styles.mainButtonImage} source={{uri: 'https://images.adsttc.com/media/images/58bc/4293/e58e/cecd/d000/016d/newsletter/FEATURED_IMAGE.jpg?1488732815'}} />
+                    <Image style={Styles.mainButtonImage} source={this.state.source} />
                 </TouchableHighlight>
-                <Text style={Styles.title}>{this.state.title}</Text>
+                <Text
+                    style={Styles.title}
+                    numberOfLines={1}
+                    ellipsizeMode={'tail'}>{this.state.title}</Text>
             </View>
         );
     }

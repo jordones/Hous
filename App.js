@@ -4,7 +4,7 @@ import { createStackNavigator, createAppContainer } from "react-navigation";
 import { LinearGradient } from 'expo';
 import {TinderDemo} from './TinderDemo.js';
 import {NavBarScreen} from './NavBarScreen.js';
-import {ChatScreen} from './ChatScreen.js';
+import {ChatScreen} from './Components/Messaging/ChatScreen.js';
 
 
 class HomeScreen extends NavBarScreen {
