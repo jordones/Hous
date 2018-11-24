@@ -12,7 +12,15 @@ export default StyleSheet.create({
       scroll: {
           flexGrow: 1,
           justifyContent: 'center',
-          alignItems: 'stretch'  
+          alignItems: 'stretch'
+      },
+      title: {
+          alignSelf: 'flex-start',
+          paddingTop: 30,
+          paddingLeft: 5,
+          paddingBottom: 5,
+          fontSize: 18,
+          color: 'rgba(0, 0, 0, 0.8)'
       },
       cardRoot: {
         height: 90,
