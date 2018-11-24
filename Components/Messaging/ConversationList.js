@@ -13,20 +13,12 @@ export class ConversationList extends React.Component {
 
     render() {
         return (
-            <View style={{flex:3,
-                                flexDirection: 'column',
-                              justifyContent: 'center',
-                              alignItems: 'stretch',
-                          paddingLeft: 10,
-                          paddingRight: 10}}>
+            <View style={Styles.listContainer}>
                     <Text style={Styles.title}>Conversations</Text>
                 <ScrollView
-                     contentContainerStyle={{
-                       flexGrow: 1,
-                       justifyContent: 'center',
-                       alignItems: 'stretch',
-                   }}
-                   showsVerticalScrollIndicator= {false}>
+                     contentContainerStyle={Styles.scroll}
+                     showsVerticalScrollIndicator= {false}
+                 >
                   <ConversationListItem source="../../assets/house1.jpg" title="House" message="Hello I am interested in renting.."/>
                   <ConversationListItem source="../../assets/house2.jpg" title="House" message="Hello I am interested in renting.."/>
                   <ConversationListItem source="../../assets/house3.jpg" title="House" message="Hello I am interested in renting.."/>

@@ -13,11 +13,11 @@ export class ChatBubble extends React.Component {
     }
     render() {
         return (
-            <View style={{flex:1}}>
-            <TouchableHighlight style={Styles.button}>
-                <Image style={Styles.mainButtonImage} source={{uri: 'https://images.adsttc.com/media/images/58bc/4293/e58e/cecd/d000/016d/newsletter/FEATURED_IMAGE.jpg?1488732815'}} />
-            </TouchableHighlight>
-            <Text style={Styles.title}>{this.state.title}</Text>
+            <View style={Styles.container}>
+                <TouchableHighlight style={Styles.button}>
+                    <Image style={Styles.mainButtonImage} source={{uri: 'https://images.adsttc.com/media/images/58bc/4293/e58e/cecd/d000/016d/newsletter/FEATURED_IMAGE.jpg?1488732815'}} />
+                </TouchableHighlight>
+                <Text style={Styles.title}>{this.state.title}</Text>
             </View>
         );
     }

@@ -1,8 +1,7 @@
 import React from 'react';
 import {TouchableHighlight, View, Image, Text, StyleSheet} from 'react-native';
-import Styles from './ChatBubbleStyles.js';
 import {ChatBubble} from './ChatBubble.js';
-
+import Styles from './ConversationListStyles.js'
 
 export class ConversationListItem extends React.Component {
     constructor(props) {
@@ -16,15 +15,15 @@ export class ConversationListItem extends React.Component {
     }
     render() {
         return (
-            <View style={styles.cardRoot}>
-              <View style={styles.imageContainer}>
+            <View style={Styles.cardRoot}>
+              <View style={Styles.imageContainer}>
               <ChatBubble source="../../assets/house1.jpg" title=""/>
               </View>
-              <View style={styles.rightContainer}>
-              <Text style={styles.text}>
+              <View style={Styles.rightContainer}>
+              <Text style={Styles.text}>
                     {this.state.title}
               </Text>
-              <Text style={styles.message}>
+              <Text style={Styles.message}>
                 { this.state.message}
               </Text>
               </View>
@@ -32,39 +31,3 @@ export class ConversationListItem extends React.Component {
         );
     }
 }
-
-const styles = StyleSheet.create({
-  cardRoot: {
-    height: 90,
-    flexDirection: 'row',
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-    borderBottomWidth : 2,
-    borderBottomColor: 'rgba(0, 0, 0, 0.1)',
-  },
-  imageContainer: {
-    flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'flex-start',
-    marginLeft: -20,
-    marginRight: -10,
-    padding: 0
-  },
-  rightContainer: {
-    flex: 2,
-    flexDirection: 'column',
-    justifyContent: 'flex-start',
-    alignItems: 'flex-start',
-  },
-  text: {
-      alignContent: 'flex-start',
-      color: 'rgba(0, 0, 0, 0.9)',
-      fontSize: 16
-  },
-  message : {
-      alignContent: 'flex-start',
-      color: 'rgba(0, 0, 0, 0.6)',
-      fontSize: 12
-  }
-
-});

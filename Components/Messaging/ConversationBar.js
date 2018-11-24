@@ -15,7 +15,7 @@ export class ConversationBar extends React.Component {
     renderConversations = () => {
         return this.state.conversations.map((conversation) => {
             <View>
-            <Text>{conversation.title} qwe</Text>
+            <Text>{conversation.title}</Text>
             </View>
 
         });
@@ -23,18 +23,13 @@ export class ConversationBar extends React.Component {
 
     render() {
             return (
-                <View style={{flex: 1,
-                    paddingLeft: 10,
-                    paddingRight: 10,
-                }}>
+                <View style={Styles.container}>
                   <Text style={Styles.title}>Start a New Conversation</Text>
-                  <View style={{height: 110,
-                  borderBottomWidth : 2,
-                  borderBottomColor: 'rgba(0, 0, 0, 0.1)'}}>
+                  <View style={Styles.scrollWrapper}>
                   <ScrollView
                       horizontal={true}
                       showsHorizontalScrollIndicator={false}
-                      style={{height:110}}>
+                      style={Styles.scroll}>
                       <ChatBubble source="../../assets/house1.jpg" title="House"/>
                       <ChatBubble source="../../assets/house2.jpg" title="House"/>
                       <ChatBubble source="../../assets/house3.jpg" title="House"/>
