@@ -5,6 +5,7 @@ import { LinearGradient } from 'expo';
 import {TinderDemo} from './TinderDemo.js';
 import {NavBarScreen} from './NavBarScreen.js';
 import {ChatScreen} from './Components/Messaging/ChatScreen.js';
+import {MessageScreen} from './Components/Messaging/MessageScreen.js';
 
 
 class HomeScreen extends NavBarScreen {
@@ -93,7 +94,8 @@ const RootStack = createStackNavigator(
     Home: HomeScreen,
     Profile: ProfileScreen,
     Chat: ChatScreen,
-    Listings: ListingsScreen
+    Listings: ListingsScreen,
+    Message: MessageScreen
   },
   {
     initialRouteName: "Login",

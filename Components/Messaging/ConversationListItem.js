@@ -2,6 +2,8 @@ import React from 'react';
 import {TouchableOpacity, View, Image, Text, StyleSheet, Alert} from 'react-native';
 import {ChatBubble} from './ChatBubble.js';
 import Styles from './ConversationListStyles.js'
+import { withNavigation } from 'react-navigation';
+
 
 export class ConversationListItem extends React.Component {
     constructor(props) {
@@ -14,13 +16,9 @@ export class ConversationListItem extends React.Component {
         }
     }
 
-    _onPressButton() {
-   Alert.alert('You opened a chat!')
- }
-
     render() {
         return (
-            <TouchableOpacity onPress={this._onPressButton}>
+            <TouchableOpacity onPress={() => { this.props.nav.navigate('Message') }}>
             <View style={Styles.cardRoot}>
                   <View style={Styles.imageContainer}>
                   <ChatBubble source={this.state.source} title=""/>

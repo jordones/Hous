@@ -14,7 +14,7 @@ export class ConversationList extends React.Component {
     renderConversations = () => {
         return this.state.conversations.map((conversation) => {
             return (
-                <ConversationListItem key={conversation.id} source={conversation.uri} title={conversation.title} message={conversation.message}/>
+                <ConversationListItem key={conversation.id} source={conversation.uri} title={conversation.title} message={conversation.message} nav={this.props.nav}/>
 
             );
         });
