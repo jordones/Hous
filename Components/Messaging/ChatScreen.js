@@ -1,5 +1,5 @@
 import React from "react";
-import { View } from "react-native";
+import { View, Button } from "react-native";
 import {NavBarScreen} from '../../NavBarScreen';
 import {ConversationBar} from './ConversationBar.js';
 import {ConversationList} from './ConversationList.js';
@@ -30,7 +30,7 @@ export class ChatScreen extends NavBarScreen {
     return (
       <View style={{ padding: 5 ,flex: 1, alignItems: "stretch", justifyContent: "center" }}>
         <ConversationBar conversations={ConversationBarData}/>
-        <ConversationList conversations={ConversationListData}/>
+        <ConversationList conversations={ConversationListData} nav={this.props.navigation }/>
       </View>
     );
   }
