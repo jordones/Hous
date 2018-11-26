@@ -1,11 +1,16 @@
 import React from 'react';
 import {TouchableHighlight, Text, View, Dimensions, Animated, Image, PanResponder } from 'react-native';
+
 import {BottomBar} from './Components/BottomBar/BottomBar.js';
+import { ListingInfo } from './Components/ListingInfo/ListingInfo.js'
 import { LinearGradient } from 'expo';
 import Style from './tinderStyles.js'
 
+
 const SCREEN_HEIGHT = Dimensions.get('window').height;
 const SCREEN_WIDTH = Dimensions.get('window').width;
+
+const IMG_SIZE = SCREEN_WIDTH - 20;
 
 
 const Listings = [
@@ -24,13 +29,28 @@ const Listings = [
       roommates: false,
       smokeFriendly: false,
     },
-    images: {
-      one: require('./assets/icons/house-pictures/picture1.png'),
-      two: require('./assets/icons/house-pictures/picture2.png'),
-      three: require('./assets/icons/house-pictures/picture3.png'),
-      four: require('./assets/icons/house-pictures/picture4.png'),
-      five: require('./assets/icons/house-pictures/picture5.png'),
-    },
+    images: [
+      {
+        id: 1,
+        thumbnail: require('./assets/icons/house-pictures/picture1.png')
+      },
+      {
+        id: 2,
+        thumbnail: require('./assets/icons/house-pictures/picture2.png'),
+      },
+      {
+        id: 3,
+        thumbnail: require('./assets/icons/house-pictures/picture3.png'),
+      },
+      {
+        id: 4,
+        thumbnail: require('./assets/icons/house-pictures/picture4.png'),
+      },
+      {
+        id: 5,
+        thumbnail: require('./assets/icons/house-pictures/picture5.png'),
+      },
+    ],
     description: "A room for rent in a shared house for students, available immediately, 15 minutes walk to U of G, close to Stone Road Mall and Metro grocery. Rent includes heat, hydro, central air, internet and all utilities, laundry is on site with limited parking as well. Plus the house is cleaned once a month by a professional cleaning service.",
   },
   { 
@@ -38,36 +58,48 @@ const Listings = [
     title: "Pineapple under the Sea",
     location: "Bikini Bottom, USA",
     price: "$800/month",
-    images: {
-      one: require('./assets/house2.jpg')
-    },
+    images: [
+      {
+        id: 1,
+        thumbnail: require('./assets/house2.jpg')
+      }
+    ],
   },
   { 
     id: "3", 
     title: "Home with $200 plasma screen tv",
     location: "Scranton, PA",
     price: "$500/month",
-    images: {
-      one: require('./assets/house3.jpg')
-    },
+    images: [
+      {
+        id: 1,
+        thumbnail: require('./assets/house3.jpg')
+      }
+    ],
   },
   { 
     id: "4", 
     title: "Single room",
     location: "Etobicoke, Ontario",
     price: "$900/month",
-    images: {
-      one: require('./assets/house4.jpg')
-    },
+    images: [
+      {
+        id: 1,
+        thumbnail: require('./assets/house4.jpg')
+      }
+    ],
   },
   { 
     id: "5", 
     title: "South Res",
     location: "Guelph, Ontario",
     price: "$800/month",
-    images: {
-      one: require('./assets/house5.jpg')
-    },
+    images: [
+      {
+        id: 1,
+        thumbnail: require('./assets/house5.jpg')
+      }
+    ],
   }
 ]
 export class TinderDemo extends React.Component {
@@ -193,37 +225,39 @@ export class TinderDemo extends React.Component {
       }
       else if (i == this.state.currentIndex) {
         return(
-          <Animated.View
-            {... this.PanResponder.panHandlers}
-            key={ item.id }
-            style={[this.rotateAndTranslate, { height:SCREEN_HEIGHT-120, width:SCREEN_WIDTH, padding: 10, position: 'absolute' }]}>
-              <Animated.View style={{ opacity: this.likeOpacity, transform: [{ rotate: '-30deg'}], position: 'absolute', top: 50, left: 40, zIndex: 1000 }}>
-                <Text style={Style.like}>LIKE</Text>
-              </Animated.View>
-              <Animated.View style={{ opacity: this.dislikeOpacity, transform: [{ rotate: '30deg'}], position: 'absolute', top: 50, right: 40, zIndex: 1000 }}>
-                <Text style={Style.dislike}>NOPE</Text>
-              </Animated.View>
-              <Image
-                style={ Style.homeImage }
-                source={ item.images.one }
-              />
-              <LinearGradient
-                style={Style.gradientStyle}
-                colors = {['rgba(0,0,0,0)', 'rgba(0,0,0,0)','rgba(0,0,0,0)','rgba(0,0,0,0.5)','rgba(0,0,0,0.8)' ]} >
-              </LinearGradient>
-              <TouchableHighlight 
-                style={Style.moreInfo}
-                onPress={() => this.moreInfoClick.bind(this)}
-                underlayColor = "transparent">
+          <View key={ item.id } >
+            <Animated.View
+              {... this.PanResponder.panHandlers}
+              style={[this.rotateAndTranslate, { height:SCREEN_HEIGHT-120, width:SCREEN_WIDTH, padding: 10, position: 'absolute' }]}>
+                <Animated.View style={{ opacity: this.likeOpacity, transform: [{ rotate: '-30deg'}], position: 'absolute', top: 50, left: 40, zIndex: 1000 }}>
+                  <Text style={Style.like}>LIKE</Text>
+                </Animated.View>
+                <Animated.View style={{ opacity: this.dislikeOpacity, transform: [{ rotate: '30deg'}], position: 'absolute', top: 50, right: 40, zIndex: 1000 }}>
+                  <Text style={Style.dislike}>NOPE</Text>
+                </Animated.View>
                 <Image
-                  source={require('./assets/icons/moreInfo.png')} />
-              </TouchableHighlight> 
-              <View style={Style.titleWrapper}>
-                <Text style={Style.titleText}>{ item.title }</Text>
-                <Text style={Style.titleText}>{ item.location } </Text>
-                <Text style={Style.titleText}>{ item.price }</Text>
-              </View>
-          </Animated.View>
+                  style={ Style.homeImage }
+                  source={ item.images[0].thumbnail}
+                />
+                <LinearGradient
+                  style={Style.gradientStyle}
+                  colors = {['rgba(0,0,0,0)', 'rgba(0,0,0,0)','rgba(0,0,0,0)','rgba(0,0,0,0.5)','rgba(0,0,0,0.8)' ]} >
+                </LinearGradient>
+                <TouchableHighlight 
+                  style={Style.moreInfo}
+                  onPress={() => this.moreInfoClick.bind(this)}
+                  underlayColor = "transparent">
+                  <Image
+                    source={require('./assets/icons/moreInfo.png')} />
+                </TouchableHighlight> 
+                <View style={Style.titleWrapper}>
+                  <Text style={Style.titleText}>{ item.title }</Text>
+                  <Text style={Style.titleText}>{ item.location } </Text>
+                  <Text style={Style.titleText}>{ item.price }</Text>
+                </View>
+            </Animated.View>
+            <ListingInfo listingObject = { item }/>
+          </View>
         );
       }
       else {
@@ -233,7 +267,7 @@ export class TinderDemo extends React.Component {
             style={[ {opacity: this.nextCardOpacity, transform:[{scale:this.nextCardScale}]}, {height:SCREEN_HEIGHT-120, width:SCREEN_WIDTH, padding: 10, position: 'absolute' }]}>
               <Image
                 style={Style.homeImage}
-                source={ item.images.one }/>
+                source={ item.images[0].thumbnail }/>
               <LinearGradient
                 style={Style.gradientStyle}
                 colors = {['rgba(0,0,0,0)', 'rgba(0,0,0,0)','rgba(0,0,0,0)','rgba(0,0,0,0.5)','rgba(0,0,0,0.8)' ]} >
