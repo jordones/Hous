@@ -10,24 +10,21 @@ import Style from './tinderStyles.js'
 const SCREEN_HEIGHT = Dimensions.get('window').height;
 const SCREEN_WIDTH = Dimensions.get('window').width;
 
-const IMG_SIZE = SCREEN_WIDTH - 20;
-
-
 const Listings = [
   {
     id: "1",
     title: "1 Bedroom, 1 Bathroom",
     location: "Guelph, Ontario",
     price: "$500/month",
-    ammenties: {
-      parking: true,
-      laundry: true,
-      furnished: false,
-      kitchen: true,
-      petFriendly: false,
-      airCondition: true,
-      roommates: false,
-      smokeFriendly: false,
+    amenities: {
+      "Parking": true,
+      "Laundry": true,
+      "Furnished": false,
+      "Full Kitchen": true,
+      "Pet Friendly": false,
+      "Air Condition": true,
+      "Roommates": false,
+      "Smoker Friendly": false,
     },
     images: [
       {
@@ -58,48 +55,92 @@ const Listings = [
     title: "Pineapple under the Sea",
     location: "Bikini Bottom, USA",
     price: "$800/month",
+    amenities: {
+      "Parking": false,
+      "Laundry": true,
+      "Furnished": false,
+      "Full Kitchen": true,
+      "Pet Friendly": false,
+      "Air Condition": true,
+      "Roommates": false,
+      "Smoker Friendly": false,
+    },
     images: [
       {
         id: 1,
         thumbnail: require('./assets/house2.jpg')
       }
     ],
+    description: "124 Conch Street is the address of the pineapple house where SpongeBob SquarePants, his pet snail Gary, and pet scallop Shelley live in. The house is three stories high and fully furnished.",
   },
   { 
     id: "3", 
     title: "Home with $200 plasma screen tv",
     location: "Scranton, PA",
     price: "$500/month",
+    amenities: {
+      "Parking": true,
+      "Laundry": true,
+      "Furnished": true,
+      "Full Kitchen": true,
+      "Pet Friendly": true,
+      "Air Condition": true,
+      "Roommates": false,
+      "Smoker Friendly": true,
+    },
     images: [
       {
         id: 1,
         thumbnail: require('./assets/house3.jpg')
       }
     ],
+    description: "This immaculate, professionally-designed 2-story condo with a private deck and patio invites comfort, and exudes modern elegance. With 2 bedrooms, 2 and a half baths, generous living space and stylish finishes, you'll enjoy a perfect setting for relaxing and entertaining.",
   },
   { 
     id: "4", 
     title: "Single room",
     location: "Etobicoke, Ontario",
     price: "$900/month",
+    amenities: {
+      "Parking": false,
+      "Laundry": false,
+      "Furnished": false,
+      "Full Kitchen": true,
+      "Pet Friendly": true,
+      "Air Condition": true,
+      "Roommates": true,
+      "Smoker Friendly": false,
+    },
     images: [
       {
         id: 1,
         thumbnail: require('./assets/house4.jpg')
       }
     ],
+    description: "Main floor furnished room in Etobicoke for man. Bright room in excellent condition Wi-fi internet Laundry in the basement Utilities included We prefer full time working man. Price 800 Please contact the owner",
   },
   { 
     id: "5", 
     title: "South Res",
     location: "Guelph, Ontario",
     price: "$800/month",
+    amenities: {
+      "Parking": false,
+      "Laundry": false,
+      "Furnished": false,
+      "Full Kitchen": false,
+      "Pet Friendly": false,
+      "Air Condition": false,
+      "Roommates": false,
+      "Smoker Friendly": false,
+    },
     images: [
       {
         id: 1,
         thumbnail: require('./assets/house5.jpg')
       }
     ],
+    description: "Our largest residence community is also getting a summer face lift, with new cladding that will add refreshed colour to portions of its unique architecture.  Here is a glimpse of what you can expect to see in the Fall of 2018.",
   }
 ]
 export class TinderDemo extends React.Component {
@@ -108,7 +149,8 @@ export class TinderDemo extends React.Component {
     super();
     this.position = new Animated.ValueXY();
     this.state = {
-      currentIndex: 0
+      currentIndex: 0,
+      isHidden: true
     };
 
     this.rotate = this.position.x.interpolate({
@@ -192,7 +234,9 @@ export class TinderDemo extends React.Component {
     Animated.spring(this.position, {
       toValue:{ x: SCREEN_WIDTH + 50, y: 0 }
     }).start( () => {
-        this.setState({currentIndex: this.state.currentIndex + 1
+        this.setState({
+          currentIndex: this.state.currentIndex + 1,
+          isHidden: true
       }, () => {
         this.position.setValue({x: 0, y: 0});
       });
@@ -202,7 +246,9 @@ export class TinderDemo extends React.Component {
     Animated.spring(this.position, 
       { toValue: { x: -SCREEN_WIDTH - 50, y: 0 }
     }).start(() => {
-      this.setState({ currentIndex: this.state.currentIndex + 1
+      this.setState({ 
+        currentIndex: this.state.currentIndex + 1,
+        isHidden: true
       }, () => {
         this.position.setValue({ x: 0, y: 0 });
       });
@@ -210,11 +256,16 @@ export class TinderDemo extends React.Component {
   }
 
  animateBack(){
-    this.setState({ currentIndex: this.state.currentIndex - 1 });
+    this.setState({ 
+      currentIndex: this.state.currentIndex - 1 ,
+      isHidden: true
+    });
  }
 
-  moreInfoClick(){
-    //TODO: add moreinfo for onclick
+  moreInfoClick = () => {
+    this.setState({
+      isHidden: !this.state.isHidden
+    })
   }
 
   renderListings = () => {
@@ -245,7 +296,7 @@ export class TinderDemo extends React.Component {
                 </LinearGradient>
                 <TouchableHighlight 
                   style={Style.moreInfo}
-                  onPress={() => this.moreInfoClick.bind(this)}
+                  onPress={this.moreInfoClick} 
                   underlayColor = "transparent">
                   <Image
                     source={require('./assets/icons/moreInfo.png')} />
@@ -256,7 +307,9 @@ export class TinderDemo extends React.Component {
                   <Text style={Style.titleText}>{ item.price }</Text>
                 </View>
             </Animated.View>
-            <ListingInfo listingObject = { item }/>
+            <View style={{marginBottom: 45,  borderBottomWidth: 15, borderBottomColor: 'white'}}>
+            {!this.state.isHidden &&  <ListingInfo listingObject = { item } closeInfo = { this.moreInfoClick.bind(this) } />}
+            </View>
           </View>
         );
       }
@@ -274,7 +327,7 @@ export class TinderDemo extends React.Component {
               </LinearGradient>
               <TouchableHighlight 
                 style={Style.moreInfo}
-                onPress={() => this.moreInfoClick.bind(this) }
+                onPress={this.moreInfoClick} 
                 underlayColor = "transparent">
                 <Image
                   source={require('./assets/icons/moreInfo.png')} />
@@ -294,9 +347,6 @@ export class TinderDemo extends React.Component {
   render() {
     return (
       <View style={{flex: 1}}>
-        <View style={{height:5}}>
-
-        </View>
         <View style={{flex:1}}>
           { this.renderListings() }
         </View>

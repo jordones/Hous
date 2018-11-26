@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 
 import styled from 'styled-components/native';
+import {Dimensions} from 'react-native';
 import Carousel, { Pagination } from 'react-native-snap-carousel'; 
 
+const SCREEN_WIDTH = Dimensions.get('window').width;
+
 export default class ThumbnailCarousel extends Component {
+  
   constructor(props) {
     super(props);
     this.state = {
@@ -36,19 +40,16 @@ export default class ThumbnailCarousel extends Component {
           dotsLength={images.length}
           activeDotIndex={activeSlide}
           carouselRef={this._carousel}
-          containerStyle={{ backgroundColor: 'rgba(0, 0, 0, 0.75)' }}
+          containerStyle={{position: 'absolute', left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}
           dotStyle={{
-              width: 10,
-              height: 10,
-              borderRadius: 5,
+              width: 20,
+              height: 20,
+              borderRadius: 50,
               marginHorizontal: 8,
-              backgroundColor: 'rgba(255, 255, 255, 0.92)'
+              backgroundColor: 'white'
           }}
-          inactiveDotStyle={{
-              // Define styles for inactive dots here
-          }}
-          inactiveDotOpacity={0.4}
-          inactiveDotScale={0.6}
+          inactiveDotOpacity={0.7}
+          inactiveDotScale={0.75}
           tappableDots={true}
         />
     );
@@ -69,11 +70,12 @@ export default class ThumbnailCarousel extends Component {
           ref={c => {
             this._carousel = c;
           }}
+          loop = {true}
           data={this.state.images}
           renderItem={this._renderItem.bind(this)}
           onSnapToItem={(index) => this.setState({ activeSlide: index }) }
-          sliderWidth={360}
-          itemWidth={256}
+          sliderWidth={SCREEN_WIDTH}
+          itemWidth={SCREEN_WIDTH}
           layout={'default'}
           firstItem={0}
         />
@@ -84,21 +86,19 @@ export default class ThumbnailCarousel extends Component {
 }
 
 const CurrentVideoImage = styled.Image`
-  top: 25;
   box-shadow: 5px 10px;
-  width: 256;
-  height: 350;
-  border-radius: 10;
+  width: 100%;
+  height: 400;
 `;
 
 const ThumbnailBackgroundView = styled.View`
   justify-content: center;
   align-items: center;
-  width: 256; 
+  width: 100%; 
 `;
 
 const CarouselBackgroundView = styled.View`
   background-color: white;
-  height: 350;
+  height: 400;
   width: 100%;
 `;
