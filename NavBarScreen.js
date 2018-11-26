@@ -35,7 +35,7 @@ export class NavBarScreen extends React.Component {
           <Image
             style={{marginLeft: 10, opacity: 0.4 }}
             source={require('./assets/icons/user.png')}
-            onClick={() => navigation.navigate('Profiel')}
+            onClick={() => navigation.navigate('Profile')}
           />
           </TouchableHighlight>
         ),
