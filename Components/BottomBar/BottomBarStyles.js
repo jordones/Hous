@@ -18,8 +18,9 @@ export default StyleSheet.create({
   },
   smallButtonImage: {
     width: 30,
+    height: 30,
     resizeMode: 'contain',
-    opacity: 0.5
+    opacity: 0.5,
   },
   bottomBar: {
     flexWrap: 'wrap',

@@ -3,6 +3,7 @@ import {TouchableHighlight, Text, View, Dimensions, Animated, Image, PanResponde
 import {BottomBar} from './components/BottomBar/BottomBar.js';
 import { LinearGradient } from 'expo';
 import Style from './tinderStyles.js'
+import { NavBarScreen } from './NavBarScreen.js';
 
 const SCREEN_HEIGHT = Dimensions.get('window').height;
 const SCREEN_WIDTH = Dimensions.get('window').width;
@@ -70,7 +71,7 @@ const Listings = [
     },
   }
 ]
-export class TinderDemo extends React.Component {
+export class TinderDemo extends NavBarScreen {
 
   constructor() {
     super();

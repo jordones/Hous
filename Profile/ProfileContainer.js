@@ -2,10 +2,9 @@ import React from 'react'
 import { Profile } from './Profile'
 import { ActivityIndicator, View } from 'react-native'
 import { StateConsumer } from '../StateContext'
+import { NavBarScreen } from '../NavBarScreen';
 
-const stateKey = 'user'
-
-export class ProfileContainer extends React.Component {
+export class ProfileContainer extends NavBarScreen {
     render() {
         return (
             <StateConsumer>
