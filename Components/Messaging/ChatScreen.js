@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Button } from "react-native";
-import {NavBarScreen} from '../../NavBarScreen';
+import {NavBarScreen} from '../../headers/NavBarScreen';
 import {ConversationBar} from './ConversationBar.js';
 import {ConversationList} from './ConversationList.js';
 /*

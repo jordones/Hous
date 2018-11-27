@@ -1,11 +1,11 @@
 import React from 'react';
 import {TouchableHighlight, Text, View, Dimensions, Animated, Image, PanResponder } from 'react-native';
 
-import {BottomBar} from './components/BottomBar/BottomBar.js';
-import { ListingInfo } from './components/ListingInfo/ListingInfo.js'
+import {BottomBar} from '../components/BottomBar/BottomBar.js';
+import { ListingInfo } from '../components/ListingInfo/ListingInfo.js'
 import { LinearGradient } from 'expo';
 import Style from './tinderStyles.js'
-import { NavBarScreen } from './NavBarScreen.js';
+import { NavBarScreen } from '../headers/NavBarScreen.js';
 
 
 const SCREEN_HEIGHT = Dimensions.get('window').height;
@@ -30,23 +30,23 @@ const Listings = [
     images: [
       {
         id: 1,
-        thumbnail: require('./assets/icons/house-pictures/picture1.png')
+        thumbnail: require('../assets/icons/house-pictures/picture1.png')
       },
       {
         id: 2,
-        thumbnail: require('./assets/icons/house-pictures/picture2.png'),
+        thumbnail: require('../assets/icons/house-pictures/picture2.png'),
       },
       {
         id: 3,
-        thumbnail: require('./assets/icons/house-pictures/picture3.png'),
+        thumbnail: require('../assets/icons/house-pictures/picture3.png'),
       },
       {
         id: 4,
-        thumbnail: require('./assets/icons/house-pictures/picture4.png'),
+        thumbnail: require('../assets/icons/house-pictures/picture4.png'),
       },
       {
         id: 5,
-        thumbnail: require('./assets/icons/house-pictures/picture5.png'),
+        thumbnail: require('../assets/icons/house-pictures/picture5.png'),
       },
     ],
     description: "A room for rent in a shared house for students, available immediately, 15 minutes walk to U of G, close to Stone Road Mall and Metro grocery. Rent includes heat, hydro, central air, internet and all utilities, laundry is on site with limited parking as well. Plus the house is cleaned once a month by a professional cleaning service.",
@@ -69,7 +69,7 @@ const Listings = [
     images: [
       {
         id: 1,
-        thumbnail: require('./assets/house2.jpg')
+        thumbnail: require('../assets/house2.jpg')
       }
     ],
     description: "124 Conch Street is the address of the pineapple house where SpongeBob SquarePants, his pet snail Gary, and pet scallop Shelley live in. The house is three stories high and fully furnished.",
@@ -92,7 +92,7 @@ const Listings = [
     images: [
       {
         id: 1,
-        thumbnail: require('./assets/house3.jpg')
+        thumbnail: require('../assets/house3.jpg')
       }
     ],
     description: "This immaculate, professionally-designed 2-story condo with a private deck and patio invites comfort, and exudes modern elegance. With 2 bedrooms, 2 and a half baths, generous living space and stylish finishes, you'll enjoy a perfect setting for relaxing and entertaining.",
@@ -115,7 +115,7 @@ const Listings = [
     images: [
       {
         id: 1,
-        thumbnail: require('./assets/house4.jpg')
+        thumbnail: require('../assets/house4.jpg')
       }
     ],
     description: "Main floor furnished room in Etobicoke for man. Bright room in excellent condition Wi-fi internet Laundry in the basement Utilities included We prefer full time working man. Price 800 Please contact the owner",
@@ -138,7 +138,7 @@ const Listings = [
     images: [
       {
         id: 1,
-        thumbnail: require('./assets/house5.jpg')
+        thumbnail: require('../assets/house5.jpg')
       }
     ],
     description: "Our largest residence community is also getting a summer face lift, with new cladding that will add refreshed colour to portions of its unique architecture.  Here is a glimpse of what you can expect to see in the Fall of 2018.",
@@ -300,7 +300,7 @@ export class TinderDemo extends NavBarScreen {
                   onPress={this.moreInfoClick}
                   underlayColor = "transparent" >
                   <Image
-                    source={require('./assets/icons/moreInfo.png')} />
+                    source={require('../assets/icons/moreInfo.png')} />
                 </TouchableHighlight> 
                 <View style={Style.titleWrapper}>
                   <Text style={Style.titleText}>{ item.title }</Text>
@@ -331,7 +331,7 @@ export class TinderDemo extends NavBarScreen {
                 onPress={this.moreInfoClick} 
                 underlayColor = "transparent">
                 <Image
-                  source={require('./assets/icons/moreInfo.png')} 
+                  source={require('../assets/icons/moreInfo.png')} 
                   resizeMode={'contain'}/>
               </TouchableHighlight> 
               <View style={Style.titleWrapper}>
