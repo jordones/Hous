@@ -6,7 +6,7 @@ export class LandlordNav extends React.Component {
         headerTitle: (
             <TouchableHighlight
                 onPress={() => navigation.navigate('Listings')}
-                underlayColor="rgba(255,255,255,1)"
+                underlayColor = "transparent"
             >
                 <Image
                     style={styles.homeIcon}

@@ -7,7 +7,7 @@ export class MessageScreen extends React.Component {
         headerTitle: (
           <TouchableHighlight
             onPress={() => navigation.navigate('Login')}
-            underlayColor = "rgba(255,255,255,1)"
+            underlayColor = "transparent"
           >
             <Image
               style={{margin: 50 }}

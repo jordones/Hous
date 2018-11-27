@@ -14,7 +14,11 @@ export class ChatBubble extends React.Component {
     render() {
         return (
             <View style={Styles.container}>
-                <TouchableHighlight style={Styles.button}>
+                <TouchableHighlight
+                    style={Styles.button}
+                    underlayColor = "transparent" 
+                >
+                    
                     <Image style={Styles.mainButtonImage} source={this.state.source} />
                 </TouchableHighlight>
                 <Text

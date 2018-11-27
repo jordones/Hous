@@ -6,7 +6,7 @@ export class NavBarScreen extends React.Component {
         headerTitle: (
             <TouchableHighlight
                 onPress={() => navigation.navigate('Home')}
-                underlayColor="rgba(255,255,255,1)"
+                underlayColor = "transparent"
             >
                 <Image
                     style={styles.homeIcon}
@@ -18,7 +18,7 @@ export class NavBarScreen extends React.Component {
         headerRight: (
             <TouchableHighlight
                 onPress={() => navigation.navigate('Chat')}
-                underlayColor="rgba(255,255,255,1)"
+                underlayColor = "transparent"
             >
                 <Image
                     style={[{ marginRight: 10 }, styles.icon]}
@@ -31,7 +31,7 @@ export class NavBarScreen extends React.Component {
         headerLeft: (
             <TouchableHighlight
                 onPress={() => navigation.navigate('Profile')}
-                underlayColor="rgba(255,255,255,1)"
+                underlayColor = "transparent"
             >
                 <Image
                     style={[styles.icon, { marginLeft: 10 }]}
