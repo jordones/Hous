@@ -1,8 +1,8 @@
 import React from 'react';
 import {TouchableHighlight, Text, View, Dimensions, Animated, Image, PanResponder } from 'react-native';
 
-import {BottomBar} from './Components/BottomBar/BottomBar.js';
-import { ListingInfo } from './Components/ListingInfo/ListingInfo.js'
+import {BottomBar} from './components/BottomBar/BottomBar.js';
+import { ListingInfo } from './components/ListingInfo/ListingInfo.js'
 import { LinearGradient } from 'expo';
 import Style from './tinderStyles.js'
 
