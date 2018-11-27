@@ -11,7 +11,7 @@ export class NavBarScreen extends React.Component {
                 <Image
                     style={styles.homeIcon}
                     resizeMode="contain"
-                    source={require('./assets/icons/logos/LogoIcon.png')}
+                    source={require('../assets/icons/logos/LogoIcon.png')}
                     onClick={() => navigation.navigate('Home')}
                 />
             </TouchableHighlight>
@@ -24,7 +24,7 @@ export class NavBarScreen extends React.Component {
                 <Image
                     style={[{ marginRight: 10 }, styles.icon]}
                     resizeMode="contain"
-                    source={require('./assets/icons/chat.png')}
+                    source={require('../assets/icons/chat.png')}
                     onClick={() => navigation.navigate('Chat')}
                 />
             </TouchableHighlight>
@@ -37,7 +37,7 @@ export class NavBarScreen extends React.Component {
                 <Image
                     style={[styles.icon, { marginLeft: 10 }]}
                     resizeMode="contain"
-                    source={require('./assets/icons/user.png')}
+                    source={require('../assets/icons/user.png')}
                     onClick={() => navigation.navigate('Profile')}
                 />
             </TouchableHighlight>
