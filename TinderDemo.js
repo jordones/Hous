@@ -5,6 +5,7 @@ import {BottomBar} from './components/BottomBar/BottomBar.js';
 import { ListingInfo } from './components/ListingInfo/ListingInfo.js'
 import { LinearGradient } from 'expo';
 import Style from './tinderStyles.js'
+import { NavBarScreen } from './NavBarScreen.js';
 
 
 const SCREEN_HEIGHT = Dimensions.get('window').height;
@@ -143,7 +144,7 @@ const Listings = [
     description: "Our largest residence community is also getting a summer face lift, with new cladding that will add refreshed colour to portions of its unique architecture.  Here is a glimpse of what you can expect to see in the Fall of 2018.",
   }
 ]
-export class TinderDemo extends React.Component {
+export class TinderDemo extends NavBarScreen {
 
   constructor() {
     super();
@@ -276,7 +277,7 @@ export class TinderDemo extends React.Component {
       }
       else if (i == this.state.currentIndex) {
         return(
-          <View key={ item.id } >
+          <View style={{position: 'relative'}} key={ item.id } >
             <Animated.View
               {... this.PanResponder.panHandlers}
               style={[this.rotateAndTranslate, { height:SCREEN_HEIGHT-120, width:SCREEN_WIDTH, padding: 10, position: 'absolute' }]}>
@@ -296,8 +297,8 @@ export class TinderDemo extends React.Component {
                 </LinearGradient>
                 <TouchableHighlight 
                   style={Style.moreInfo}
-                  onPress={this.moreInfoClick} 
-                  underlayColor = "transparent">
+                  onPress={this.moreInfoClick}
+                  underlayColor = "transparent" >
                   <Image
                     source={require('./assets/icons/moreInfo.png')} />
                 </TouchableHighlight> 
@@ -330,7 +331,8 @@ export class TinderDemo extends React.Component {
                 onPress={this.moreInfoClick} 
                 underlayColor = "transparent">
                 <Image
-                  source={require('./assets/icons/moreInfo.png')} />
+                  source={require('./assets/icons/moreInfo.png')} 
+                  resizeMode={'contain'}/>
               </TouchableHighlight> 
               <View style={Style.titleWrapper}>
                 <Text style={Style.titleText}>{ item.title }</Text>

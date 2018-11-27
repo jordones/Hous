@@ -1,37 +1,61 @@
-import React from 'react';
-import {TouchableHighlight, View, Image} from 'react-native';
-import Styles from './BottomBarStyles.js'
+import React from 'react'
+import { TouchableHighlight, View, Image } from 'react-native'
+import styles from './BottomBarStyles.js'
 
 export class BottomBar extends React.Component {
-
     constructor(props) {
-        super(props);
+        super(props)
     }
 
     render() {
         return (
-            <View style={Styles.bottomBar}>
-                <View style={{flex:1}}>
-                <TouchableHighlight style={Styles.button} onPress={ this.props.updateBack }>
-                    <Image style={Styles.smallButtonImage} source={require('../../assets/icons/bottom-bar/reverseIcon.png')} />
-                </TouchableHighlight>
+            <View style={styles.bottomBar}>
+                <View style={{ flex: 1 }}>
+                    <TouchableHighlight
+                        style={styles.button}
+                        onPress={this.props.updateBack}
+                    >
+                        <Image
+                            style={styles.smallButtonImage}
+                            source={require('../../assets/icons/bottom-bar/reverseIcon.png')}
+                            resizeMode="contain"
+                        />
+                    </TouchableHighlight>
                 </View>
-                <View style={{flex:1}}>
-                <TouchableHighlight style={Styles.button} onPress={ this.props.updateDislike }>
-                    <Image style={Styles.mainButtonImage} source={require('../../assets/icons/bottom-bar/homeHate.png')} />
-                </TouchableHighlight>
+                <View style={{ flex: 1 }}>
+                    <TouchableHighlight
+                        style={styles.button}
+                        onPress={this.props.updateDislike}
+                    >
+                        <Image
+                            style={styles.mainButtonImage}
+                            source={require('../../assets/icons/bottom-bar/homeHate.png')}
+                            resizeMode="contain"
+                        />
+                    </TouchableHighlight>
                 </View>
-                <View style={{flex:1}}>
-                <TouchableHighlight style={Styles.button} onPress={ this.props.updateLike }>
-                    <Image style={Styles.mainButtonImage} source={require('../../assets/icons/bottom-bar/homeHeart.png')} />
-                </TouchableHighlight>
+                <View style={{ flex: 1 }}>
+                    <TouchableHighlight
+                        style={styles.button}
+                        onPress={this.props.updateLike}
+                    >
+                        <Image
+                            style={styles.mainButtonImage}
+                            source={require('../../assets/icons/bottom-bar/homeHeart.png')}
+                            resizeMode="contain"
+                        />
+                    </TouchableHighlight>
                 </View>
-                <View style={{flex:1}}>
-                <TouchableHighlight style={Styles.button}>
-                    <Image style={Styles.smallButtonImage} source={require('../../assets/icons/chat.png')} />
-                </TouchableHighlight>
+                <View style={{ flex: 1 }}>
+                    <TouchableHighlight style={styles.button}>
+                        <Image
+                            style={styles.smallButtonImage}
+                            source={require('../../assets/icons/chat.png')}
+                            resizeMode="contain"
+                        />
+                    </TouchableHighlight>
                 </View>
             </View>
-        );
+        )
     }
 }
