@@ -47,8 +47,10 @@ export class NavBarScreen extends React.Component {
 const styles = StyleSheet.create({
     icon: {
         opacity: 0.4,
-        width: 24,
-        height: 24,
+        width: 50,
+        height: 30,
+        alignItems: 'center',
+        justifyContent:'center',
     },
     homeIcon: {
         margin: 50,

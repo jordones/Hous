@@ -21,7 +21,7 @@ export class StateProvider extends React.Component {
             kitchen: null,
             petFriendly: null,
             airCondition: null,
-            roommmates: null,
+            roommates: null,
             smokerFriendly: null,
         },
     }

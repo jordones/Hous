@@ -58,15 +58,11 @@ export default StyleSheet.create({
     },
     moreInfo: {
       position: 'absolute',
-      bottom: 60,
+      backgroundColor: 'transparent',
+      bottom: 45,
       right: 30,
       zIndex: 555,
       height: 44,
       width: 44,
     },
-    moreInfoImage: {
-      flex: 1, 
-      width: 44, 
-      height: 44,
-    }
 });
