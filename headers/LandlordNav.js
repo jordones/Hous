@@ -5,14 +5,13 @@ export class LandlordNav extends React.Component {
     static navigationOptions = ({ navigation, screenProps }) => ({
         headerTitle: (
             <TouchableHighlight
-                onPress={() => navigation.navigate('Home')}
+                onPress={() => navigation.navigate('Listings')}
                 underlayColor="rgba(255,255,255,1)"
             >
                 <Image
                     style={styles.homeIcon}
                     resizeMode="contain"
                     source={require('../assets/icons/logos/logoLandscape.png')}
-                    onClick={() => navigation.navigate('Listings')}
                 />
             </TouchableHighlight>
         ),

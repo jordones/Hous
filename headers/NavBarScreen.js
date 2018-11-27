@@ -12,7 +12,6 @@ export class NavBarScreen extends React.Component {
                     style={styles.homeIcon}
                     resizeMode="contain"
                     source={require('../assets/icons/logos/LogoIcon.png')}
-                    onClick={() => navigation.navigate('Home')}
                 />
             </TouchableHighlight>
         ),
