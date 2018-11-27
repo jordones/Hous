@@ -19,7 +19,7 @@ export class LoginScreen extends React.Component {
                     source={require('../assets/icons/logos/logoWhite.png')}
                 />
                 <Text style={styles.textHeader}>Hoüs</Text>
-                <Text style={styles.textSubtitle}>Sign In To Get Started</Text>
+                <Text style={styles.textSubtitle}>Login To Get Started</Text>
                 <TouchableHighlight
                     style={[{ marginBottom: 35 }, styles.button]}
                     onPress={() => this.props.navigation.navigate('Home')}
