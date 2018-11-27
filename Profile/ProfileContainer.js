@@ -2,7 +2,7 @@ import React from 'react'
 import { Profile } from './Profile'
 import { ActivityIndicator, View } from 'react-native'
 import { StateConsumer } from '../StateContext'
-import { NavBarScreen } from '../NavBarScreen';
+import { NavBarScreen } from '../headers/NavBarScreen';
 
 export class ProfileContainer extends NavBarScreen {
     render() {

@@ -1,9 +1,9 @@
 import React from 'react';
 import {TouchableHighlight, Text, View, Dimensions, Animated, Image, PanResponder } from 'react-native';
-import {BottomBar} from './components/BottomBar/BottomBar.js';
+import {BottomBar} from '../components/BottomBar/BottomBar.js';
 import { LinearGradient } from 'expo';
 import Style from './tinderStyles.js'
-import { NavBarScreen } from './NavBarScreen.js';
+import { NavBarScreen } from '../headers/NavBarScreen.js';
 
 const SCREEN_HEIGHT = Dimensions.get('window').height;
 const SCREEN_WIDTH = Dimensions.get('window').width;
@@ -26,11 +26,11 @@ const Listings = [
       smokeFriendly: false,
     },
     images: {
-      one: require('./assets/icons/house-pictures/picture1.png'),
-      two: require('./assets/icons/house-pictures/picture2.png'),
-      three: require('./assets/icons/house-pictures/picture3.png'),
-      four: require('./assets/icons/house-pictures/picture4.png'),
-      five: require('./assets/icons/house-pictures/picture5.png'),
+      one: require('../assets/icons/house-pictures/picture1.png'),
+      two: require('../assets/icons/house-pictures/picture2.png'),
+      three: require('../assets/icons/house-pictures/picture3.png'),
+      four: require('../assets/icons/house-pictures/picture4.png'),
+      five: require('../assets/icons/house-pictures/picture5.png'),
     },
     description: "A room for rent in a shared house for students, available immediately, 15 minutes walk to U of G, close to Stone Road Mall and Metro grocery. Rent includes heat, hydro, central air, internet and all utilities, laundry is on site with limited parking as well. Plus the house is cleaned once a month by a professional cleaning service.",
   },
@@ -40,7 +40,7 @@ const Listings = [
     location: "Bikini Bottom, USA",
     price: "$800/month",
     images: {
-      one: require('./assets/house2.jpg')
+      one: require('../assets/house2.jpg')
     },
   },
   { 
@@ -49,7 +49,7 @@ const Listings = [
     location: "Scranton, PA",
     price: "$500/month",
     images: {
-      one: require('./assets/house3.jpg')
+      one: require('../assets/house3.jpg')
     },
   },
   { 
@@ -58,7 +58,7 @@ const Listings = [
     location: "Etobicoke, Ontario",
     price: "$900/month",
     images: {
-      one: require('./assets/house4.jpg')
+      one: require('../assets/house4.jpg')
     },
   },
   { 
@@ -67,7 +67,7 @@ const Listings = [
     location: "Guelph, Ontario",
     price: "$800/month",
     images: {
-      one: require('./assets/house5.jpg')
+      one: require('../assets/house5.jpg')
     },
   }
 ]
@@ -218,7 +218,7 @@ export class TinderDemo extends NavBarScreen {
                 underlayColor = "transparent">
                 <Image
                   style={Style.moreInfoImage}
-                  source={require('./assets/icons/moreInfo.png')} 
+                  source={require('../assets/icons/moreInfo.png')} 
                   resizeMode={'contain'}/>
               </TouchableHighlight> 
               <View style={Style.titleWrapper}>
@@ -246,7 +246,7 @@ export class TinderDemo extends NavBarScreen {
                 onPress={() => this.moreInfoClick.bind(this) }
                 underlayColor = "transparent">
                 <Image
-                  source={require('./assets/icons/moreInfo.png')} 
+                  source={require('../assets/icons/moreInfo.png')} 
                   resizeMode={'contain'}/>
               </TouchableHighlight> 
               <View style={Style.titleWrapper}>
@@ -264,9 +264,6 @@ export class TinderDemo extends NavBarScreen {
   render() {
     return (
       <View style={{flex: 1}}>
-        <View style={{height:5}}>
-
-        </View>
         <View style={{flex:1}}>
           { this.renderListings() }
         </View>
