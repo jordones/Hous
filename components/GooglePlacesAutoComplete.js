@@ -11,7 +11,6 @@ import {
     StyleSheet,
     Dimensions,
     TouchableHighlight,
-    Platform,
     ActivityIndicator,
     PixelRatio,
 } from 'react-native'

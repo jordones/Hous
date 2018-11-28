@@ -1,8 +1,14 @@
 import React from 'react'
-import { View } from 'react-native'
+import { View, StyleSheet } from 'react-native'
 
 export const SectionSeperator = () => (
-    <View
-        style={{ height: 3, backgroundColor: 'rgba(0,0,0,0.10)', flex: 1 }}
-    />
+    <View style={styles.view} />
 )
+
+const styles = StyleSheet.create({
+    view: {
+        height: 3,
+        backgroundColor: 'rgba(0,0,0,0.10)',
+        flex: 1,
+    },
+})
