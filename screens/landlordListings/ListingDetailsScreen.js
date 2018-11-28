@@ -1,20 +1,40 @@
 import React from 'react'
 
-import { Text, View, } from 'react-native'
-import { LandlordNav } from '../../headers/LandlordNav'
+import { Text, View, TouchableHighlight, Image } from 'react-native'
+import {ListingInfo} from '../../components/ListingInfo/ListingInfo'
 
-export class ListingDetailsScreen extends LandlordNav {
+export class ListingDetailsScreen extends React.Component {
 
     constructor(props) {
         super(props);
         listing = this.props.navigation.state.params.listing
     }
     
-
-    componentDidMount() {
-        console.log(listing)
-    }
-
+    static navigationOptions = ({ navigation }) => ({
+        headerTitle: (
+            <TouchableHighlight
+                onPress={() => navigation.navigate('Listings')}
+                underlayColor="rgba(255,255,255,1)"
+            >
+                <Image
+                    resizeMode="contain"
+                    source={require('../../assets/icons/logos/logoLandscape.png')}
+                />
+            </TouchableHighlight>
+        ),
+        headerRight: (
+            <TouchableHighlight
+                onPress={() => navigation.navigate('ListingEdit',{
+                    listingItem: listing,
+                    })}
+                underlayColor="rgba(255,255,255,1)"
+                style= {{paddingRight: 20, paddingTop:5}}
+            >
+            <Text style={{fontSize: 18}}>Edit</Text>
+            </TouchableHighlight>
+        ),
+    })
+    
     render() {
         return(
         <View
@@ -24,7 +44,7 @@ export class ListingDetailsScreen extends LandlordNav {
             justifyContent: 'center',
         }}
         >
-        <Text>sasaas</Text>
+        <ListingInfo listingObject = { listing } type="landlord" />
         </View>
         )
     }

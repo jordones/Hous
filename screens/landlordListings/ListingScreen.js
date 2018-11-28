@@ -170,7 +170,15 @@ export class ListingScreen extends LandlordNav {
             } 
             else {
                 return(
-                    <View key={item.id} style={Styles.ListingWrapper}>
+                    <TouchableHighlight 
+                    key={item.id}
+                    underlayColor = "transparent"
+                    onPress={() => this.props.navigation.navigate('ListingDetails',{
+                    listing: item,
+                    })
+                    }
+                    >
+                    <View style={Styles.ListingWrapper}>
                         <View style={Styles.imageShadow}>
                         <Image style={Styles.mainButtonImage} source={item.images[0].thumbnail} />
                         </View>
@@ -192,6 +200,7 @@ export class ListingScreen extends LandlordNav {
                             <Text style={Styles.textLeased}>Leased</Text>
                         </View>
                     </View>
+                    </TouchableHighlight>
                 );
             }
         });
