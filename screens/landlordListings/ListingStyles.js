@@ -60,5 +60,5 @@ export default StyleSheet.create({
         color: 'white',
         fontSize: 24,
         fontWeight: '600'
-    }
+    },
 });
