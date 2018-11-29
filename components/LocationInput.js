@@ -8,7 +8,7 @@ export const LocationInput = ({ label, onPress, value, ...props }) =>
         <Label>{label}</Label>
         <View style={styles.wrapper}>            
             <Image
-                style={{ marginRight: 10, opacity: 0.4, width: 24, height: 24 }}
+                style={styles.imageStyle}
                 source={require('../assets/icons/direction-icon.png')}
             />
             <Text
@@ -39,6 +39,12 @@ export const LocationInputNoIcon = ({ label, onPress, value, ...props }) =>
 )
 
 const styles = StyleSheet.create({
+    imageStyle: {
+        marginRight: 10,
+        opacity: 0.4,
+        width: 24,
+        height: 24,
+    },
     input: {
         flex: 1,
         height: 35,
@@ -54,7 +60,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         borderBottomWidth: 3,
         borderBottomColor: 'rgba(0,0,0,0.25)',
-
     },
         inputNoIcon: {
         flex: 1,
