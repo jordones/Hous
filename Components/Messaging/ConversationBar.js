@@ -1,5 +1,5 @@
 import React from 'react';
-import {TouchableHighlight, View, Image, Text, ScrollView} from 'react-native';
+import {TouchableHighlight, View, Image, Text, ScrollView, TouchableOpacity} from 'react-native';
 import Styles from './ConversationBarStyles.js';
 import {ChatBubble} from './ChatBubble.js';
 
@@ -15,7 +15,7 @@ export class ConversationBar extends React.Component {
     renderConversations = () => {
         return this.state.conversations.map((conversation) => {
             return (
-                <ChatBubble key={conversation.id} source={conversation.uri} title={conversation.title}/>
+                    <ChatBubble key={conversation.id} source={conversation.uri} title={conversation.title}/>
             );
         });
     }
