@@ -9,19 +9,21 @@ export class ConversationListItem extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            source: props.source,
-            title: props.title,
-            message: props.message
+            conversation: props.conversation,
+
 
         }
     }
 
     render() {
         return (
-            <TouchableOpacity onPress={() => { this.props.nav.navigate('Message') }}>
+            <TouchableOpacity onPress={() => { this.props.navigation.navigate('Message', {
+                conversation: this.state.conversation,
+                messageData: this.state.conversation.messageData
+            }) }}>
             <View style={Styles.cardRoot}>
                   <View style={Styles.imageContainer}>
-                  <ChatBubble source={this.state.source} title=""/>
+                  <ChatBubble source={this.state.conversation.uri} title=""/>
                   </View>
                   <View style={Styles.rightContainer}>
                   <Text
@@ -29,14 +31,14 @@ export class ConversationListItem extends React.Component {
                     numberOfLines={1}
                     ellipsizeMode={'tail'}
                   >
-                        {this.state.title}
+                        {this.state.conversation.title}
                   </Text>
                   <Text
                     style={Styles.message}
                     numberOfLines={1}
                     ellipsizeMode={'tail'}
                   >
-                    { this.state.message}
+                    { this.state.conversation.message}
                   </Text>
                   </View>
               </View>
