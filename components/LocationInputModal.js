@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, StyleSheet, Image, StatusBar } from 'react-native'
+import { StatusBar } from 'react-native'
 import { GooglePlacesAutocomplete } from './GooglePlacesAutoComplete'
 import { StateConsumer } from '../StateContext'
 

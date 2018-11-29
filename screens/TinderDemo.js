@@ -1,6 +1,5 @@
 import React from 'react';
 import {TouchableHighlight, Text, View, Dimensions, Animated, Image, PanResponder } from 'react-native';
-
 import {BottomBar} from '../components/BottomBar/BottomBar.js';
 import { ListingInfo } from '../components/ListingInfo/ListingInfo.js'
 import { LinearGradient } from 'expo';
@@ -53,7 +52,7 @@ const Listings = [
   },
   { 
     id: "2",
-    title: "Pineapple under the Sea",
+    title: "Pineapple Under the Sea",
     location: "Bikini Bottom, USA",
     price: "$800/month",
     amenities: {
@@ -76,7 +75,7 @@ const Listings = [
   },
   { 
     id: "3", 
-    title: "Home with $200 plasma screen tv",
+    title: "Home with $200 Plasma Screen TV",
     location: "Scranton, PA",
     price: "$500/month",
     amenities: {
@@ -142,7 +141,124 @@ const Listings = [
       }
     ],
     description: "Our largest residence community is also getting a summer face lift, with new cladding that will add refreshed colour to portions of its unique architecture.  Here is a glimpse of what you can expect to see in the Fall of 2018.",
-  }
+  },
+  { 
+    id: "6", 
+    title: "Patrick's Rock",
+    location: "Bikini Bottom, USA",
+    price: "$300/month",
+    amenities: {
+      "Parking": true,
+      "Laundry": false,
+      "Furnished": false,
+      "Full Kitchen": false,
+      "Pet Friendly": true,
+      "Air Condition": false,
+      "Roommates": true,
+      "Smoker Friendly": false,
+    },
+    images: [
+      {
+        id: 1,
+        thumbnail: require('../assets/house6.png')
+      }
+    ],
+    description: "Rock is much bigger in person. Sand furniture is available upon request for an additional $50/month",
+  },
+  { 
+    id: "7", 
+    title: "Professor David Flata's Office",
+    location: "Guelph, Ontario",
+    price: "$10000/month",
+    amenities: {
+      "Parking": false,
+      "Laundry": false,
+      "Furnished": true,
+      "Full Kitchen": false,
+      "Pet Friendly": false,
+      "Air Condition": true,
+      "Roommates": true,
+      "Smoker Friendly": false,
+    },
+    images: [
+      {
+        id: 1,
+        thumbnail: require('../assets/house7.png')
+      }
+    ],
+    description: "Male in a Bcomp degree only. Share an office/room with your favourite professor. Students often come in to speak to me so noise is expected throughout the day. Parking can be arranged for an arm and a leg.",
+  },
+  { 
+    id: "8", 
+    title: "CN Tower",
+    location: "Toronto, Ontario",
+    price: "$400/month",
+    amenities: {
+      "Parking": true,
+      "Laundry": false,
+      "Furnished": false,
+      "Full Kitchen": false,
+      "Pet Friendly": false,
+      "Air Condition": true,
+      "Roommates": true,
+      "Smoker Friendly": false,
+    },
+    images: [
+      {
+        id: 1,
+        thumbnail: require('../assets/house8.jpg')
+      }
+    ],
+    description: "Live in the largest building in Canada. Those with a fear of heights need not message.",
+  },
+  { 
+    id: "9", 
+    title: "Be One with the Wild",
+    location: "Nowhere, Denmark",
+    price: "$10/month",
+    amenities: {
+      "Parking": true,
+      "Laundry": false,
+      "Furnished": false,
+      "Full Kitchen": false,
+      "Pet Friendly": true,
+      "Air Condition": false,
+      "Roommates": false,
+      "Smoker Friendly": true,
+    },
+    images: [
+      {
+        id: 1,
+        thumbnail: require('../assets/house9.jpg')
+      }
+    ],
+    description: "Have you ever wanted to escape to the wild and live one with the animals? This is your chance to abandon civilization and come live in a tent in the middle of nowhere.",
+  },
+  { 
+    id: "10", 
+    title: "Must See New York Condo",
+    location: "New York, New York",
+    price: "$6000/month",
+    amenities: {
+      "Parking": true,
+      "Laundry": true,
+      "Furnished": true,
+      "Full Kitchen": true,
+      "Pet Friendly": true,
+      "Air Condition": true,
+      "Roommates": true,
+      "Smoker Friendly": true,
+    },
+    images: [
+      {
+        id: 1,
+        thumbnail: require('../assets/house10.jpg')
+      }
+    ],
+    description: "2 bedroom and 2 bath condo in the heart of New York City. Steps away from Central Park. 24/7 concierge.",
+  },
+  
+
 ]
 export class TinderDemo extends NavBarScreen {
 
