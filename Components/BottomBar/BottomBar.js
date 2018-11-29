@@ -14,6 +14,7 @@ export class BottomBar extends React.Component {
                     <TouchableHighlight
                         style={styles.button}
                         onPress={this.props.updateBack}
+                        underlayColor = "transparent"
                     >
                         <Image
                             style={styles.smallButtonImage}
@@ -24,6 +25,7 @@ export class BottomBar extends React.Component {
                 </View>
                 <View style={{ flex: 1 }}>
                     <TouchableHighlight
+                        underlayColor = "transparent"
                         style={styles.button}
                         onPress={this.props.updateDislike}
                     >
@@ -36,6 +38,7 @@ export class BottomBar extends React.Component {
                 </View>
                 <View style={{ flex: 1 }}>
                     <TouchableHighlight
+                        underlayColor = "transparent"
                         style={styles.button}
                         onPress={this.props.updateLike}
                     >
@@ -47,7 +50,10 @@ export class BottomBar extends React.Component {
                     </TouchableHighlight>
                 </View>
                 <View style={{ flex: 1 }}>
-                    <TouchableHighlight style={styles.button}>
+                    <TouchableHighlight
+                         style={styles.button}
+                         underlayColor = "transparent" 
+                         >
                         <Image
                             style={styles.smallButtonImage}
                             source={require('../../assets/icons/chat.png')}
