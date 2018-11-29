@@ -7,7 +7,9 @@ import { Profile as ProfileScreen } from './Profile'
 import { LocationInputModal } from './components'
 import { StateProvider } from './StateContext'
 import { LoginScreen } from './screens/LoginScreen'
-import { ListingScreen } from './screens/ListingScreen'
+import { ListingScreen } from './screens/landlordListings/ListingScreen'
+import { ListingDetailsScreen } from './screens/landlordListings/ListingDetailsScreen'
+import { ListingEdit as listingEditScreen } from './screens/landlordListings/ListingEdit'
 
 const MainStack = createStackNavigator(
     {
@@ -17,6 +19,8 @@ const MainStack = createStackNavigator(
         Chat: ChatScreen,
         Listings: ListingScreen,
         Message: MessageScreen,
+        ListingDetails: ListingDetailsScreen,
+        ListingEdit: listingEditScreen,
     },
     {
         initialRouteName: 'Login',
